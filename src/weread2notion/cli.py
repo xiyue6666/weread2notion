@@ -319,7 +319,7 @@ def insert_to_notion(bookName, bookId, cover, sort, author, isbn, rating, catego
         if minutes > 0:
             format_time += f"{minutes}分"
         raw_properties["状态"] = "读完" if markedStatus == 4 else "在读"
-        raw_properties["阅读时长"] = format_time
+        raw_properties["阅读时长"] = readingTime  # 原始秒数
         raw_properties["阅读进度"] = readingProgress
         if "finishedDate" in read_info:
             raw_properties["时间"] = datetime.utcfromtimestamp(
